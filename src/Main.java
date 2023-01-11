@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -42,4 +43,9 @@ public class Main {
             //Стрим штука "одноразовая", поэтому для запуска следующего метода создадим новый стрим
             Stream<Integer> stream2 = numbersList.stream();
             System.out.println("Количество четных чисел: " + findEvenNumbers(stream2.toList()));
-    }}
+
+            Optional<Integer> min = numbersList.stream().min(Integer::compare);
+            System.out.println("min = " + min.get());
+            Optional<Integer> max = numbersList.stream().max(Integer::compare);
+            System.out.println("max = " + max.get());
+        }}
