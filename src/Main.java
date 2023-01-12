@@ -44,8 +44,13 @@ public class Main {
             Stream<Integer> stream2 = numbersList.stream();
             System.out.println("Количество четных чисел: " + findEvenNumbers(stream2.toList()));
 
-            Optional<Integer> min = numbersList.stream().min(Integer::compare);
-            System.out.println("min = " + min.get());
-            Optional<Integer> max = numbersList.stream().max(Integer::compare);
-            System.out.println("max = " + max.get());
+            Integer min = numbersList.stream()
+                    .min(Integer::compare)
+                    .orElse(0);
+            System.out.println("min = " + min);
+            Integer max = numbersList.stream()
+                    .max(Integer::compare)
+                    .orElse(0);
+            System.out.println("max = " + max);
+
         }}
